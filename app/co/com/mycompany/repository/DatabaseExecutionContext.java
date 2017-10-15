@@ -1,4 +1,4 @@
-package models;
+package co.com.mycompany.repository;
 
 import akka.actor.ActorSystem;
 import scala.concurrent.ExecutionContext;
@@ -19,7 +19,8 @@ public class DatabaseExecutionContext implements ExecutionContextExecutor {
         this.executionContext = actorSystem.dispatchers().lookup(name);
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public ExecutionContext prepare() {
         return executionContext.prepare();
     }
